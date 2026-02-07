@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Industrial Manager - Test</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 40px; background-color: #f4f4f9; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        input { padding: 8px; margin: 5px; border: 1px solid #ddd; border-radius: 4px; }
+        button { padding: 10px 15px; background: #0078d4; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #005a9e; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>Industrial Inventory System</h1>
+
+    <div class="card">
+        <h2>1. Raw Materials (Matérias-Primas)</h2>
+        <input type="text" id="mName" placeholder="Name (e.g., Steel)">
+        <input type="number" id="mStock" placeholder="Stock Quantity">
+        <button onclick="addMaterial()">Register Material</button>
+    </div>
+
+    <div class="card">
+        <h2>2. Products (Produtos)</h2>
+        <input type="text" id="pName" placeholder="Product Name">
+        <input type="number" id="pPrice" placeholder="Price (Value)">
+        <button onclick="addProduct()">Register Product</button>
+    </div>
+
+    <div class="card">
+        <h2>3. Production Suggestions (By Priority Value)</h2>
+        <button onclick="loadSuggestions()" style="background-color: #28a745;">Generate Report</button>
+        <table id="suggestionTable">
+            <thead>
+                <tr><th>Product</th><th>Max Possible Units</th><th>Unit Price</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        const API = "http://localhost:5008/api";
+
+        async function addMaterial() {
+            const data = { name: document.getElementById('mName').value, stockQuantity: parseFloat(document.getElementById('mStock').value) };
+            await fetch(`${API}/rawmaterials`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data) });
+            alert("Material registered!");
+        }
+
+        async function addProduct() {
+            const data = { name: document.getElementById('pName').value, price: parseFloat(document.getElementById('pPrice').value) };
+            await fetch(`${API}/products`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data) });
+            alert("Product registered!");
+        }
+
+        async function loadSuggestions() {
+            const res = await fetch(`${API}/production/suggestions`);
+            const data = await res.json();
+            const tbody = document.querySelector("#suggestionTable tbody");
+            tbody.innerHTML = data.map(s => `<tr><td>${s.productName}</td><td>${s.maxQuantity}</td><td>$${s.unitPrice}</td></tr>`).join('');
+        }
+    </script>
+</body>
+</html>

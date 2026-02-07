@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Manager | Smart Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #022642; --secondary: #28a745; --dark: #333; --light: #f4f4f9; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: var(--light); color: var(--dark); }
+        
+        /* Navigation */
+        nav { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        nav h1 { color: var(--primary); margin: 0; font-size: 1.5rem; }
+        
+        /* Hero Section */
+        .hero { padding: 4rem 5%; background: linear-gradient(135deg, #022642 0%, #005a9e 100%); color: white; text-align: center; }
+        .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem; }
+        .btn-main { background: var(--secondary); color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .btn-main:hover { transform: translateY(-3px); background: #218838; }
+
+        /* Features */
+        .features { padding: 4rem 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .feature-card { background: white; padding: 2rem; border-radius: 12px; text-align: center; transition: 0.3s; }
+        .feature-card:hover { transform: translateY(-10px); }
+        .feature-card i { font-size: 3rem; color: var(--primary); margin-bottom: 1rem; }
+
+        /* App Link */
+        .app-link { text-align: center; padding: 4rem 5%; background: #fff; }
+        
+        footer { text-align: center; padding: 2rem; background: var(--dark); color: white; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1><i class="fas fa-industry"></i> IndustrialManager</h1>
+        <a href="index.html" class="btn-main">Access System</a>
+    </nav>
+
+    <section class="hero">
+        <h2>Intelligent Stock Control</h2>
+        <p>Optimize your production with automated suggestions and real-time raw material management.</p>
+        <a href="#features" class="btn-main">Learn More</a>
+    </section>
+
+    <section id="features" class="features">
+        <div class="feature-card">
+            <i class="fas fa-boxes-stacked"></i>
+            <h3>Inventory Control</h3>
+            <p>Manage raw materials and product stock with ease and precision.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Smart Suggestions</h3>
+            <p>Our algorithm suggests what to produce based on your current stock and highest profit margins.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Fully Responsive</h3>
+            <p>Access your industrial data from any device, anywhere.</p>
+        </div>
+    </section>
+
+    <div class="app-link">
+        <h2>Ready to start?</h2>
+        <p>Explore the full potential of our management API.</p><br>
+        <a href="index.html" class="btn-main" style="padding: 20px 50px; font-size: 1.2rem;">Launch Application</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Industrial Manager Solution - ADS Student Project</p>
+    </footer>
+
+</body>
+</html>
