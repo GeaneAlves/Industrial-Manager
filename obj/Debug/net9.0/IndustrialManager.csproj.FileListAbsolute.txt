@@ -144,3 +144,4 @@ C:\Teste_Gupy_autoflex\IndustrialManager\obj\Debug\net9.0\refint\IndustrialManag
 C:\Teste_Gupy_autoflex\IndustrialManager\obj\Debug\net9.0\IndustrialManager.pdb
 C:\Teste_Gupy_autoflex\IndustrialManager\obj\Debug\net9.0\IndustrialManager.genruntimeconfig.cache
 C:\Teste_Gupy_autoflex\IndustrialManager\obj\Debug\net9.0\ref\IndustrialManager.dll
+C:\Teste_Gupy_autoflex\IndustrialManager\obj\Debug\net9.0\IndustrialManager.sourcelink.json
