@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Industrial Manager - User Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .register-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; }
+        .register-card h2 { color: #28a745; margin-bottom: 1.5rem; }
+        input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; margin-bottom: 1rem; }
+        .btn-register { background: #28a745; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: bold; }
+        .btn-register:hover { background: #218838; }
+        .login-link { margin-top: 1rem; display: block; color: #0078d4; text-decoration: none; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="register-card">
+        <i class="fas fa-user-plus fa-4x" style="color: #28a745; margin-bottom: 1rem;"></i>
+        <h2>Create Account</h2>
+        <input type="text" id="reg_username" placeholder="New Username (ex: abc)">
+        <input type="password" id="reg_password" placeholder="New Password (ex: 123)">
+        <button class="btn-register" onclick="saveUser()">Register</button>
+        <a href="login.html" class="login-link">Already have an account? Login here</a>
+    </div>
+
+    <script>
+        function saveUser() {
+            const user = document.getElementById('reg_username').value;
+            const pass = document.getElementById('reg_password').value;
+            
+            if(user && pass) {
+                // Salva os dados no navegador
+                localStorage.setItem('storedUser', user);
+                localStorage.setItem('storedPass', pass);
+                alert('User registered successfully!');
+                window.location.href = 'login.html';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+    </script>
+</body>
+</html>
