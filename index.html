@@ -2,111 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Industrial Manager - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Manager | Smart Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 40px; background-color: #f4f4f9; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        input { padding: 8px; margin: 5px; border: 1px solid #ddd; border-radius: 4px; }
-        button { padding: 10px 15px; background: #0078d4; color: white; border: none; border-radius: 4px; cursor: pointer; }
-        button:hover { background: #005a9e; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }
+        :root { --primary: #022642; --secondary: #28a745; --dark: #333; --light: #f4f4f9; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: var(--light); color: var(--dark); }
         
-        /* Layout do Cabeçalho */
-        .header-container { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; }
-        .search-box { position: relative; width: 300px; margin-top: 10px; }
-        .search-box i { position: absolute; left: 10px; top: 12px; color: #888; }
-        .search-box input { width: 100%; padding: 10px 10px 10px 35px; border: 1px solid #ddd; border-radius: 20px; outline: none; box-sizing: border-box; }
+        /* Navigation */
+        nav { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        nav h1 { color: var(--primary); margin: 0; font-size: 1.5rem; }
+        
+        /* Hero Section */
+        .hero { padding: 4rem 5%; background: linear-gradient(135deg, #022642 0%, #005a9e 100%); color: white; text-align: center; }
+        .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem; }
+        .btn-main { background: var(--secondary); color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .btn-main:hover { transform: translateY(-3px); background: #218838; }
+
+        /* Features */
+        .features { padding: 4rem 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .feature-card { background: white; padding: 2rem; border-radius: 12px; text-align: center; transition: 0.3s; }
+        .feature-card:hover { transform: translateY(-10px); }
+        .feature-card i { font-size: 3rem; color: var(--primary); margin-bottom: 1rem; }
+
+        /* App Link */
+        .app-link { text-align: center; padding: 4rem 5%; background: #fff; }
+        
+        footer { text-align: center; padding: 2rem; background: var(--dark); color: white; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <div class="header-container">
-        <a href="landing.html" style="text-decoration: none; color: #0078d4; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fas fa-home fa-lg"></i>
-            <span>Home</span>
-        </a>
+    <nav>
+        <h1><i class="fas fa-industry"></i> IndustrialManager</h1>
+        <a href="login.html" class="btn-main">Access System</a>
+    </nav>
 
-        <div style="display: flex; flex-direction: column; align-items: flex-end;">
-            <a href="#" onclick="logout()" style="text-decoration: none; color: #d9534f; font-weight: bold; font-size: 0.9rem;">
-                <i class="fas fa-sign-out-alt"></i> Logout
-            </a>
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" onkeyup="filterResults()" placeholder="Search products or materials...">
-            </div>
+    <section class="hero">
+        <h2>Intelligent Stock Control</h2>
+        <p>Optimize your production with automated suggestions and real-time raw material management.</p>
+        <a href="#features" class="btn-main">Learn More</a>
+    </section>
+
+    <section id="features" class="features">
+        <div class="feature-card">
+            <i class="fas fa-boxes-stacked"></i>
+            <h3>Inventory Control</h3>
+            <p>Manage raw materials and product stock with ease and precision.</p>
         </div>
+        <div class="feature-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Smart Suggestions</h3>
+            <p>Our algorithm suggests what to produce based on your current stock and highest profit margins.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Fully Responsive</h3>
+            <p>Access your industrial data from any device, anywhere.</p>
+        </div>
+    </section>
+
+    <div class="app-link">
+        <h2>Ready to start?</h2>
+        <p>Explore the full potential of our management API.</p><br>
+        <a href="register_user.html" style="display:block; margin-top:10px; font-size:0.8rem; color:#666; text-decoration:none;">Don't have an account? Register here</a>
     </div>
 
-    <h1>Industrial Inventory System</h1>
+    <footer>
+        <p>&copy; 2026 Industrial Manager Solution - ADS Student Project</p>
+    </footer>
 
-    <div class="card">
-        <h2>1. Raw Materials (Matérias-Primas)</h2>
-        <input type="text" id="mName" placeholder="Name (e.g., Steel)">
-        <input type="number" id="mStock" placeholder="Stock Quantity">
-        <button onclick="addMaterial()">Register Material</button>
-    </div>
-
-    <div class="card">
-        <h2>2. Products (Produtos)</h2>
-        <input type="text" id="pName" placeholder="Product Name">
-        <input type="number" id="pPrice" placeholder="Price (Value)">
-        <button onclick="addProduct()">Register Product</button>
-    </div>
-
-    <div class="card">
-        <h2>3. Production Suggestions (By Priority Value)</h2>
-        <button onclick="loadSuggestions()" style="background-color: #28a745;">Generate Report</button>
-        <table id="suggestionTable">
-            <thead>
-                <tr><th>Product</th><th>Max Possible Units</th><th>Unit Price</th></tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-
-    <script>
-        const API = "http://localhost:5008/api";
-
-        // Proteção de Rota
-        if (localStorage.getItem('isAuthenticated') !== 'true') {
-            window.location.href = 'login.html';
-        }
-
-        function logout() {
-            localStorage.removeItem('isAuthenticated');
-            window.location.href = 'login.html';
-        }
-
-        function filterResults() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.querySelectorAll('.card'); 
-            cards.forEach(card => {
-                let text = card.innerText.toLowerCase();
-                card.style.display = text.includes(input) ? "block" : "none";
-            });
-        }
-
-        // Funções de Comunicação com o Back-end
-        async function addMaterial() {
-            const data = { name: document.getElementById('mName').value, stockQuantity: parseFloat(document.getElementById('mStock').value) };
-            await fetch(`${API}/rawmaterials`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data) });
-            alert("Material registered!");
-        }
-
-        async function addProduct() {
-            const data = { name: document.getElementById('pName').value, price: parseFloat(document.getElementById('pPrice').value) };
-            await fetch(`${API}/products`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data) });
-            alert("Product registered!");
-        }
-
-        async function loadSuggestions() {
-            const res = await fetch(`${API}/production/suggestions`);
-            const data = await res.json();
-            const tbody = document.querySelector("#suggestionTable tbody");
-            tbody.innerHTML = data.map(s => `<tr><td>${s.productName}</td><td>${s.maxQuantity}</td><td>$${s.unitPrice}</td></tr>`).join('');
-        }
-    </script>
 </body>
 </html>

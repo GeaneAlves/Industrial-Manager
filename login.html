@@ -41,7 +41,7 @@
     // Aceita o padrão "admin" OU o que você cadastrou (abc/123)
     if((user === 'admin' && pass === 'admin') || (user === storedUser && pass === storedPass)) {
         localStorage.setItem('isAuthenticated', 'true');
-        window.location.href = 'index.html';
+        window.location.href = 'dashboard.html';
     } else {
         document.getElementById('error').style.display = 'block';
     }
